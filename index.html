@@ -68,7 +68,7 @@
                         <span class="author-block">
                           <a href="https://douwekiela.github.io" target="_blank">Douwe Kiela</a><sup>6,7</sup>,</span>
                           <span class="author-block">
-                            <a href="https://drimpossible.github.io" target="_blank">Ameya Prabhu</a><sup>3,4</sup>,</span>
+                            <a href="https://drimpossible.github.io" target="_blank">Ameya Prabhu</a><sup>3,4°</sup>,</span>
                             <span class="author-block">
                               <a href="https://bethgelab.org" target="_blank">Matthias Bethge</a><sup>3,4</sup>,</span>
                               <span class="author-block">
@@ -101,7 +101,7 @@
                                 <a href="https://github.com/model-similarity/lm-similarity" target="_blank"
                                 class="external-link button is-normal is-rounded is-dark">
                                 <span class="icon">
-                                  <img src="static/images/octicons_mark_github.svg" width="24px" height="24px">
+                                  <img src="static/images/github_mark.svg" width="24px" height="24px">
                                 </span>
                                 <span>Code</span>
                               </a>
@@ -186,8 +186,6 @@
           </section>
           <!-- End paper abstract -->
 
-
-          <!-- Findings -->
           <!-- Findings -->
           <section class="hero is-small">
             <div class="hero-body">
@@ -197,50 +195,47 @@
             </div>
           </section>
 
-          <!-- Image carousel -->
+          <!-- Image sections -->
           <section class="hero is-small">
             <div class="hero-body">
               <div class="container">
-                <div id="results-carousel" class="carousel results-carousel">
-                 <div class="item" style="text-align: center;">
+                <div class="item" style="text-align: center; margin-bottom: 4rem;">
                   <h1 class="title is-4 has-text-centered">
                     <b>Evaluation: Affinity Bias in LLM-as-a-judge</b>
                   </h1>
-                  <!-- Your image here -->
-                  <img src="static/images/judgement_scores_vs_similarity.png" alt="Judgment scores vs similarity plot" style="width: 50%; object-fit: contain; margin: 0 auto 20px auto;"/>
-                  <h2 class="subtitle has-text-justified">
+                  <img src="static/images/judgement_scores_vs_similarity.png" alt="Similarity vs Judgment scores plot" style="width: 50%; object-fit: contain; margin: 0 auto 20px auto;"/>
+                  <h2 class="subtitle has-text-justified" style="max-width: 800px; margin: 0 auto;">
                     LLM-as-a-judge scores show <b>affinity bias</b> towards more similar models, after controlling for the evaluated model's capability. 
                     For partial correlation and multiple regression analysis, checkout our paper. 
                   </h2>
                 </div>
-                <div class="item" style="text-align: center;">
+
+                <div class="item" style="text-align: center; margin-bottom: 4rem;">
                   <h1 class="title is-4 has-text-centered">
                     <b>Training on LM Annotations benefits from Complementary Knowledge</b>
                   </h1>
-                  <!-- Your image here -->
-                  <img src="static/images/kappavsgain.pdf" alt="Kappa vs gain plot" style="width: 50%; object-fit: contain; margin: 0 auto 20px auto;"/>
-                  <h2 class="subtitle has-text-justified">
+                  <img src="static/images/kappavsgain.png" alt="Similarity vs Gain from weak-to-strongn training plot" style="width: 50%; object-fit: contain; margin: 0 auto 20px auto;"/>
+                  <h2 class="subtitle has-text-justified" style="max-width: 800px; margin: 0 auto;">
                     Student models trained on annotations of smaller supervisors show higher performance improvements, or <B>weak-to-strong generalization</B>, when the student and supervisor have lower similarity. 
                     In our paper, we also show that current weak-to-strong training methods have a higher performance ceiling than assumed previously, if they leverage complementary knowledge between the supervisor and student more effectively.
                   </h2>
                 </div>
+
                 <div class="item" style="text-align: center;">
                   <h1 class="title is-4 has-text-centered">
                     <b> With Increasing Capabilities, Model Errors are Becoming More Correlated</b>
-                  </1>
-                  <!-- Your image here -->
-                  <img src="static/images/size_colored_by_family.png" alt="Model size colored by family" style="width: 50%; object-fit: contain; margin: 20px auto 20px auto;"/>
-                  <h2 class="subtitle has-text-justified">
+                  </h1>
+                  <img src="static/images/size_colored_by_family.png" alt="Similarilty increases as capabilities increase" style="width: 50%; object-fit: contain; margin: 20px auto 20px auto;"/>
+                  <h2 class="subtitle has-text-justified" style="max-width: 800px; margin: 0 auto;">
                     Our similarity metric captures whether models make similar mistakes.
                     By analzying 100+ open-weight models, we find that as model capabilities have increased, so has average similarity to models from other developers in the same capability class. <br><br>
                     <b>Implications</b>: If the trend of similarity increasing with capabilities continues, it could mean greater risks of affinity bias in evaluations, and lower gains from inter-LLM training.<br><br>
                   </h2>
                 </div>
+              </div>
             </div>
-          </div>
-        </div>
-      </section>
-      <!-- End image carousel -->
+          </section>
+          <!-- End image sections -->
 
       <section class="section">
         <div class="container is-max-desktop">
