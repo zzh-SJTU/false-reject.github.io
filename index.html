@@ -124,7 +124,7 @@
                                     <a href="https://arxiv.org/pdf/<ARXIV PAPER ID>.pdf" target="_blank"
                                     class="external-link button is-normal is-rounded is-dark">
                                     <span class="icon">
-                                      <i class="ai ai-arxiv"></i>
+                                      <img src="static/images/arxiv-logomark-small.svg" style="width: 1em; height: 1em;">
                                     </span>
                                     <span>Paper</span>
                                   </a>
@@ -193,7 +193,7 @@
                   <img src="static/images/main_fig.png" alt="Main figure" style="max-width: 82%; width: 100%;">
                 </div>
                 <h2 class="subtitle has-text-centered">
-                 We develop a novel probabilistic metric for model similarity κ<sub>p</sub> which adjusts for chance agreement due to accuracy. Using this, we find:
+                 We propose <i>Chance Adjusted Probabilistic Agreement (CAPA, or κ<sub>p</sub>)</i>, a novel metric for model similarity which adjusts for chance agreement due to accuracy. Using CAPA, we find:
                  (1) LLM-as-a-judge scores are biased towards more similar models controlling for the model's capability.
                  (2) Gain from training strong models on annotations of weak supervisors (weak-to-strong generalization) is higher when the two models are more different.
                  (3) Concerningly, model errors are getting more correlated as capabilities increase.
@@ -211,7 +211,7 @@
                   <h2 class="title is-3">Abstract</h2>
                   <div class="content has-text-justified">
                     <p>
-                      As Language Model (LM) capabilities advance, evaluating and supervising them at scale is getting harder for humans. There is hope that other language models can automate both these tasks, which we refer to as <i>AI Oversight</i>. We study how model similarity affects both aspects of AI oversight by proposing a probabilistic metric for LM similarity based on overlap in model mistakes. Using this metric, we first show that LLM-as-a-judge scores favor models similar to the judge, generalizing recent self-preference results. Then, we study training on LM annotations, and find complementary knowledge between the weak supervisor and strong student model plays a crucial role in gains from weak-to-strong generalization. As model capabilities increase, it becomes harder to find their mistakes, and we might defer more to AI oversight. However, we observe a concerning trend -- model mistakes are becoming more similar with increasing capabilities, pointing to risks from correlated failures. Our work underscores the importance of reporting and correcting for model similarity, especially in the emerging paradigm of AI oversight.
+                      As Language Model (LM) capabilities advance, evaluating and supervising them at scale is getting harder for humans. There is hope that other language models can automate both these tasks, which we refer to as <i>AI Oversight</i>. We study how model similarity affects both aspects of AI oversight by proposing <i>Chance Adjusted Probabilistic Agreement</i> (CAPA): a metric for LM similarity based on overlap in model mistakes. Using CAPA, we first show that LLM-as-a-judge scores favor models similar to the judge, generalizing recent self-preference results. Then, we study training on LM annotations, and find complementary knowledge between the weak supervisor and strong student model plays a crucial role in gains from weak-to-strong generalization. As model capabilities increase, it becomes harder to find their mistakes, and we might defer more to AI oversight. However, we observe a concerning trend -- model mistakes are becoming more similar with increasing capabilities, pointing to risks from correlated failures. Our work underscores the importance of reporting and correcting for model similarity, especially in the emerging paradigm of AI oversight.
                     </p>
                   </div>
                 </div>
@@ -226,10 +226,11 @@
               <div class="container">
                 <h1 class="title is-3 has-text-centered">Similarity Metric</h1>
                 <div class="content has-text-justified">
-                  <p>Two models with 90% accuracy have much lesser scope to disagree than two models with 50% accuracy. 
-                     So we adjust for chance agreement due to accuracy, that is, how much two independent models with the given accuracies will agree. We extend the <a href="https://proceedings.neurips.cc/paper_files/paper/2020/hash/9f6992966d4c363ea0162a056cb45fe5-Abstract.html">Error Consistency</a> metric in two key ways:
-                     (1) When both models are wrong, they can still disagree. We compare sample-wise predictions instead of sample-wise correctness.
-                     (2) We incorporate the probabilies models provide over options.
+                  <p> 
+                    We propose a new metric, <i>Chance Adjusted Probabilistic Agreement</i>, or <b>CAPA</b>, which has three key properties:
+                     (1) Two models with 90% accuracy have much lesser scope to disagree than two models with 50% accuracy. CAPA adjusts for chance agreement of two independent models with the given accuracies.
+                     (2) When both models are wrong, they can still disagree. CAPA compares sample-wise predictions instead of sample-wise correctness.
+                     (3) Models provide probabilistic predictions, CAPA incorporates this information.
                   </p>
                   
                   <!-- <div style="text-align: center;">
@@ -288,7 +289,7 @@
                           <td>✅</td>
                         </tr>
                         <tr style="border: 2px solid black;">
-                          <td>κ<sub>p</sub> (Ours)</td>
+                          <td>CAPA (κ<sub>p</sub>) - Ours</td>
                           <td>✅</td>
                           <td>✅</td>
                           <td>✅</td>
@@ -297,7 +298,7 @@
                     </table>
                   </div>
                   <p style="margin-top: 1rem;">
-                    For our metric definition and theoretical properties, checkout our paper. You can compute similarities between different models using <a href="https://huggingface.co/spaces/bethgelab/lm-similarity">our tool</a>! 
+                    For CAPA's mathematical definition and theoretical properties, checkout our paper. You compute similarities between different models using <a href="https://huggingface.co/spaces/bethgelab/lm-similarity">our interactive tool</a>! 
                   </p>
                 </div>
               </div>
@@ -344,8 +345,8 @@
                   </h1>
                   <img src="static/images/size_colored_by_family.png" alt="Similarilty increases as capabilities increase" style="width: 100%; max-width: 50%; object-fit: contain; margin: 20px auto 20px auto;"/>
                   <h2 class="subtitle has-text-justified" style="max-width: 800px; margin: 0 auto;">
-                    Our similarity metric captures whether models make similar mistakes.
-                    By analzying 100+ open-weight models, we find that as model capabilities have increased, so has average similarity to models from other developers in the same capability class. <br><br>
+                    CAPA captures whether models make similar mistakes.
+                    By analzying 100+ open-weight models, we find that as model capabilities have increased, so has average CAPA to models from other developers in the same capability class. <br><br>
                     <b>Implications</b>: If the trend of similarity increasing with capabilities continues, it could mean greater risks of affinity bias in evaluations, and lower gains from inter-LLM training.<br><br>
                   </h2>
                 </div>
