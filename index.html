@@ -240,61 +240,62 @@
                     <img src="static/images/kappa_p.png" alt="Kappa_p formula" style="width: 100%; max-width: 20%;">
                   </div> -->
 
-                  <table class="table is-bordered is-striped is-narrow is-hoverable" style="margin: 0 auto;">
-                    <thead>
-                      <tr>
-                        <th>Metric</th>
-                        <th>Adjusts for<br>Accuracy</th>
-                        <th>Distinguishes<br>different mistakes</th>
-                        <th>Incorporates<br>Probabilities</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td><a href="https://arxiv.org/abs/2407.09141">%Flips</a> = 1 - c<sub>obs</sub></td>
-                        <td>❌</td>
-                        <td>❌</td>
-                        <td>❌</td>
-                      </tr>
-                      <tr>
-                        <td>Cohen's κ, Scott's π, Fleiss κ</td>
-                        <td>❌</td>
-                        <td>✅</td>
-                        <td>❌</td>
-                      </tr>
-                      <tr>
-                        <td><a href="https://arxiv.org/abs/2306.05685">%Agreement</a></td>
-                        <td>❌</td>
-                        <td>✅</td>
-                        <td>❌</td>
-                      </tr>
-                      <tr>
-                        <td><a href="https://proceedings.neurips.cc/paper_files/paper/2020/hash/9f6992966d4c363ea0162a056cb45fe5-Abstract.html">Error Consistency</a></td>
-                        <td>✅</td>
-                        <td>❌</td>
-                        <td>❌</td>
-                      </tr>
-                      <tr>
-                        <td>Pearson / Matthew's Correlation of Errors</td>
-                        <td>✅</td>
-                        <td>❌</td>
-                        <td>❌</td>
-                      </tr>
-                      <tr>
-                        <td>Divergence metrics like KL, JSD</td>
-                        <td>❌</td>
-                        <td>✅</td>
-                        <td>✅</td>
-                      </tr>
-                      <tr style="border: 2px solid black;">
-                        <td>κ<sub>p</sub> (Ours)</td>
-                        <td>✅</td>
-                        <td>✅</td>
-                        <td>✅</td>
-                      </tr>
-                      </tr>
-                    </tbody>
-                  </table>
+                  <div class="table-container">
+                    <table class="table is-bordered is-striped is-narrow is-hoverable" style="margin: 0 auto; font-size: 0.9rem;">
+                      <thead>
+                        <tr>
+                          <th style="min-width: 120px;">Metric</th>
+                          <th style="min-width: 90px;">Adjusts for<br>Accuracy</th>
+                          <th style="min-width: 90px;">Distinguishes<br>different mistakes</th>
+                          <th style="min-width: 90px;">Incorporates<br>Probabilities</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td><a href="https://arxiv.org/abs/2407.09141">%Flips</a> = 1 - c<sub>obs</sub></td>
+                          <td>❌</td>
+                          <td>❌</td>
+                          <td>❌</td>
+                        </tr>
+                        <tr>
+                          <td>Cohen's κ, Scott's π, Fleiss κ</td>
+                          <td>❌</td>
+                          <td>✅</td>
+                          <td>❌</td>
+                        </tr>
+                        <tr>
+                          <td><a href="https://arxiv.org/abs/2306.05685">%Agreement</a></td>
+                          <td>❌</td>
+                          <td>✅</td>
+                          <td>❌</td>
+                        </tr>
+                        <tr>
+                          <td><a href="https://proceedings.neurips.cc/paper_files/paper/2020/hash/9f6992966d4c363ea0162a056cb45fe5-Abstract.html">Error Consistency</a></td>
+                          <td>✅</td>
+                          <td>❌</td>
+                          <td>❌</td>
+                        </tr>
+                        <tr>
+                          <td>Pearson / Matthew's Correlation of Errors</td>
+                          <td>✅</td>
+                          <td>❌</td>
+                          <td>❌</td>
+                        </tr>
+                        <tr>
+                          <td>Divergence metrics like KL, JSD</td>
+                          <td>❌</td>
+                          <td>✅</td>
+                          <td>✅</td>
+                        </tr>
+                        <tr style="border: 2px solid black;">
+                          <td>κ<sub>p</sub> (Ours)</td>
+                          <td>✅</td>
+                          <td>✅</td>
+                          <td>✅</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
                   <p style="margin-top: 1rem;">
                     For our metric definition and theoretical properties, checkout our paper. You can compute similarities between different models using <a href="https://huggingface.co/spaces/bethgelab/lm-similarity">our tool</a>! 
                   </p>
