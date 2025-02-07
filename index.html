@@ -121,7 +121,7 @@
                                 <div class="publication-links">
                                      <!-- Arxiv PDF link -->
                                   <span class="link-block">
-                                    <a href="https://arxiv.org/pdf/<ARXIV PAPER ID>.pdf" target="_blank"
+                                    <a href="https://arxiv.org/abs/2502.04313" target="_blank"
                                     class="external-link button is-normal is-rounded is-dark">
                                     <span class="icon">
                                       <img src="static/images/arxiv-logomark-small.svg" style="width: 1em; height: 1em;">
@@ -324,7 +324,7 @@
                   <img src="static/images/judgement_scores_vs_similarity.png" alt="Similarity vs Judgment scores plot" style="width: 100%; max-width: 50%; object-fit: contain; margin: 0 auto 20px auto;"/>
                   <h2 class="subtitle has-text-justified" style="max-width: 800px; margin: 0 auto;">
                     LLM-as-a-judge scores show <b>affinity bias</b> towards more similar models, after controlling for the evaluated model's capability. 
-                    For partial correlation and multiple regression analysis, checkout our paper. 
+                    For partial correlation and multiple regression analysis, checkout <a href="https://arxiv.org/abs/2502.04313">our paper</a>. 
                   </h2>
                 </div>
 
@@ -335,7 +335,7 @@
                   <img src="static/images/kappavsgain.png" alt="Similarity vs Gain from weak-to-strongn training plot" style="width: 100%; max-width: 50%; object-fit: contain; margin: 0 auto 20px auto;"/>
                   <h2 class="subtitle has-text-justified" style="max-width: 800px; margin: 0 auto;">
                     Student models trained on annotations of smaller supervisors show higher performance improvements, or <B>weak-to-strong generalization</B>, when the student and supervisor have lower similarity. 
-                    In our paper, we also show that current weak-to-strong training methods have a higher performance ceiling than assumed previously, if they leverage complementary knowledge between the supervisor and student more effectively.
+                    In <a href="https://arxiv.org/abs/2502.04313">our paper</a>, we also show that current weak-to-strong training methods have a higher performance ceiling than assumed previously, if they leverage complementary knowledge between the supervisor and student more effectively.
                   </h2>
                 </div>
 
@@ -373,7 +373,15 @@
         <section class="section" id="BibTeX">
           <div class="container is-max-desktop content">
             <h2 class="title">BibTeX</h2>
-            <pre><code>BibTex Code Here</code></pre>
+            <pre><code>@misc{goel2025greatmodelsthinkalike,
+              title={Great Models Think Alike and this Undermines AI Oversight}, 
+              author={Shashwat Goel and Joschka Struber and Ilze Amanda Auzina and Karuna K Chandra and Ponnurangam Kumaraguru and Douwe Kiela and Ameya Prabhu and Matthias Bethge and Jonas Geiping},
+              year={2025},
+              eprint={2502.04313},
+              archivePrefix={arXiv},
+              primaryClass={cs.LG},
+              url={https://arxiv.org/abs/2502.04313}, 
+        }</code></pre>
           </div>
       </section>
       <!--End BibTex citation -->
