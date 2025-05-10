@@ -2,29 +2,22 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
-  <!-- Replace the content tag with appropriate information -->
-  <meta name="description" content="Model similarity has negative effects on using LMs to judge or train other models; Unfortunately LMs are getting similar with increasing capabilities.">
-  <meta property="og:title" content="Great Models Think Alike and this Undermines AI Oversight"/>
-  <meta property="og:description" content="Model similarity has negative effects on using LMs to judge or train other models; Unfortunately LMs are getting similar with increasing capabilities."/>
-  <meta property="og:url" content="model-similarity.github.io"/>
-  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
-  <meta property="og:image" content="static/images/main_fig.png" />
+  <meta name="description" content="FalseReject: A Resource for Improving Contextual Safety and Mitigating Over-Refusals in LLMs via Structured Reasoning">
+  <meta property="og:title" content="FalseReject: A Resource for Improving Contextual Safety and Mitigating Over-Refusals in LLMs via Structured Reasoning"/>
+  <meta property="og:description" content="A comprehensive resource containing 16k seemingly toxic queries accompanied by structured responses across 44 safety-related categories."/>
+  <meta property="og:url" content="false-reject.github.io"/>
+  <meta property="og:image" content="static/images/Figure_benchmark.png" />
   <meta property="og:image:width" content="1200"/>
   <meta property="og:image:height" content="630"/>
 
-
-  <meta name="twitter:title" content="Great Models Think Alike and this Undermines AI Oversight">
-  <meta name="twitter:description" content="We find model similarity has negative effects on using LMs to judge or train other models; Unfortunately LMs are getting similar with increasing capabilities.">
-  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
-  <meta name="twitter:image" content="static/images/main_fig.png">
+  <meta name="twitter:title" content="FalseReject: A Resource for Improving Contextual Safety and Mitigating Over-Refusals in LLMs via Structured Reasoning">
+  <meta name="twitter:description" content="A comprehensive resource containing 16k seemingly toxic queries accompanied by structured responses across 44 safety-related categories.">
+  <meta name="twitter:image" content="static/images/Figure_benchmark.png">
   <meta name="twitter:card" content="summary_large_image">
-  <!-- Keywords for your paper to be indexed by-->
-  <meta name="keywords" content="Model similarity, AI oversight, LLM, Mistakes, Correlated failures, Affinity bias, LLM-as-a-judge, Weak-to-strong generalization, AI evaluations, AI training">
+  <meta name="keywords" content="LLM safety, Over-refusal, False rejection, AI alignment, Language models, Safety calibration">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-
-  <title>Similarity affects Oversight</title>
+  <title>FalseReject</title>
   <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
   <link href="https://fonts.googleapis.com/css?family=Google+Sans" rel="stylesheet">
 
@@ -32,8 +25,7 @@
   <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
   <link rel="stylesheet" href="static/css/bulma-slider.min.css">
   <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
-  <link rel="stylesheet"
-  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="static/css/index.css">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -80,332 +72,262 @@
 </head>
 <body>
 
-
   <section class="hero">
     <div class="hero-body">
-      <div class="container is-max-desktop">
+      <div class="container" style="max-width: 1200px;">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">Great Models Think Alike and this Undermines AI Oversight</h1>
+            <h1 class="title is-1 publication-title">FalseReject: A Resource for Improving Contextual Safety and Mitigating Over-Refusals in LLMs via Structured Reasoning</h1>
             <div class="is-size-5 publication-authors">
-              <!-- Paper authors -->
               <span class="author-block">
-                <a href="https://shash42.github.io" target="_blank">Shashwat Goel</a><sup>1,2°</sup>,</span>
+                <a href="https://zzh-sjtu.github.io/zhehaozhang.github.io/">Zhehao Zhang</a><sup>1†</sup>,</span>
                 <span class="author-block">
-                  <a href="https://github.com/the-klingspor" target="_blank">Joschka Strüber</a><sup>3,4°</sup>,</span>
+                  <a href="https://weijiexu.com/">Weijie Xu</a><sup>2</sup>,</span>
                   <span class="author-block">
-                    <a href="https://ilzeamandaa.github.io" target="_blank">Ilze Amanda Auzina</a><sup>3,4°</sup>,</span>
+                    <a href="https://wufanyou.github.io/">Fanyou Wu</a><sup>2</sup>,</span>
                     <span class="author-block">
-                      <a href="https://www.linkedin.com/in/karuna-k-c-519945214/" target="_blank">Karuna K Chandra</a><sup>5°</sup>,</span>
-                      <span class="author-block">
-                        <a href="https://precog.iiit.ac.in" target="_blank">Ponnurangam Kumaraguru</a><sup>5</sup>,</span>
-                        <span class="author-block">
-                          <a href="https://douwekiela.github.io" target="_blank">Douwe Kiela</a><sup>6,7</sup>,</span>
-                          <span class="author-block">
-                            <a href="https://drimpossible.github.io" target="_blank">Ameya Prabhu</a><sup>3,4°</sup>,</span>
-                            <span class="author-block">
-                              <a href="https://bethgelab.org" target="_blank">Matthias Bethge</a><sup>3,4</sup>,</span>
-                              <span class="author-block">
-                                <a href="https://jonasgeiping.github.io" target="_blank">Jonas Geiping</a><sup>1,2,3</sup></span>
-                              </div>
-
-                              <div class="is-size-5 publication-authors">
-                                <span class="author-block">
-                                  <sup>1</sup>ELLIS Institute Tübingen, <sup>2</sup>Max Planck Institute for Intelligent Systems, <sup>3</sup>Tübingen AI Center,<br>
-                                   <sup>4</sup>University of Tübingen, <sup>5</sup>IIIT Hyderabad, <sup>6</sup>Contextual AI, <sup>7</sup>Stanford University<br>
-                                  <sup>°</sup>Core contributors
-                                </span>
-                              </div>
-
-                              <div class="column has-text-centered">
-                                <div class="publication-links">
-                                     <!-- Arxiv PDF link -->
-                                  <span class="link-block">
-                                    <a href="https://arxiv.org/abs/2502.04313" target="_blank"
-                                    class="external-link button is-normal is-rounded is-dark">
-                                    <span class="icon">
-                                      <img src="static/images/arxiv-logomark-small.svg" style="width: 1em; height: 1em;">
-                                    </span>
-                                    <span>Paper</span>
-                                  </a>
-                                </span>
-
-                              <!-- Github link -->
-                              <span class="link-block">
-                                <a href="https://github.com/model-similarity/lm-similarity" target="_blank"
-                                class="external-link button is-normal is-rounded is-dark">
-                                <span class="icon">
-                                  <img src="static/images/github_mark.svg" width="24px" height="24px">
-                                </span>
-                                <span>Code</span>
-                              </a>
-                            </span>
-
-                            
-                            
-                            <span class="link-block">
-                              <a href="https://pypi.org/project/lm-sim/" target="_blank"
-                              class="external-link button is-normal is-rounded is-dark">
-                              <span class="icon">
-                                <img src="static/images/pypi_logo.png" width="24px" height="24px">
-                              </span>
-                              <span>pip install lm-sim</span>
-                            </a>
-                          </span>
-
-                            <span class="link-block">
-                              <a href="https://huggingface.co/spaces/bethgelab/lm-similarity" target="_blank"
-                              class="external-link button is-normal is-rounded is-dark">
-                              <span class="icon">
-                                <img src="static/images/huggingface_logo-noborder.svg" width="24px" height="24px">
-                              </span>
-                              <span>Try it yourself!</span>
-                            </a>
-                          </span>
-
-                            <!-- ArXiv abstract Link -->
-                            <span class="link-block">
-                              <a href="https://huggingface.co/datasets/bethgelab/lm-similarity" target="_blank"
-                              class="external-link button is-normal is-rounded is-dark">
-                              <span class="icon">
-                                <img src="static/images/huggingface_logo-noborder.svg" width="24px" height="24px">
-                              </span>
-                              <span>Data</span>
-                            </a>
-                          </span>
-
-                          
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                      <a href="https://creddy.net/">Chandan K. Reddy</a><sup>2</sup></span>
             </div>
-          </section>
 
-
-          <!-- Teaser video-->
-          <section class="hero teaser">
-            <div class="container is-max-desktop">
-              <div class="hero-body">
-                <div style="text-align: center;">
-                  <img src="static/images/main_fig.png" alt="Main figure" style="max-width: 82%; width: 100%;">
-                </div>
-                <h2 class="subtitle has-text-justified">
-                 We propose <i>Chance Adjusted Probabilistic Agreement (CAPA, or κ<sub>p</sub>)</i>, a novel metric for model similarity which adjusts for chance agreement due to accuracy. Using CAPA, we find:
-                 (1) LLM-as-a-judge scores are biased towards more similar models controlling for the model's capability.
-                 (2) Gain from training strong models on annotations of weak supervisors (weak-to-strong generalization) is higher when the two models are more different.
-                 (3) Concerningly, model errors are getting more correlated as capabilities increase.
-                </h2>
-              </div>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>1</sup>Dartmouth College, <sup>2</sup>Amazon<br>
+                <sup>†</sup>Work done at Amazon
+              </span>
             </div>
-          </section>
-          <!-- End teaser video -->
 
-          <!-- Paper abstract -->
-          <section class="section hero is-light">
-            <div class="container is-max-desktop">
-              <div class="columns is-centered has-text-centered">
-                <div class="column is-four-fifths">
-                  <h2 class="title is-3">Abstract</h2>
-                  <div class="content has-text-justified">
-                    <p>
-                      As Language Model (LM) capabilities advance, evaluating and supervising them at scale is getting harder for humans. There is hope that other language models can automate both these tasks, which we refer to as <i>AI Oversight</i>. We study how model similarity affects both aspects of AI oversight by proposing <i>Chance Adjusted Probabilistic Agreement</i> (CAPA): a metric for LM similarity based on overlap in model mistakes. Using CAPA, we first show that LLM-as-a-judge scores favor models similar to the judge, generalizing recent self-preference results. Then, we study training on LM annotations, and find complementary knowledge between the weak supervisor and strong student model plays a crucial role in gains from weak-to-strong generalization. As model capabilities increase, it becomes harder to find their mistakes, and we might defer more to AI oversight. However, we observe a concerning trend -- model mistakes are becoming more similar with increasing capabilities, pointing to risks from correlated failures. Our work underscores the importance of reporting and correcting for model similarity, especially in the emerging paradigm of AI oversight.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-          <!-- End paper abstract -->
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/2502.04313" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <img src="static/images/arxiv-logomark-small.svg" style="width: 1em; height: 1em;">
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
 
-          <!-- Similarity Metric -->
-          <section class="hero is-small">
-            <div class="hero-body">
-              <div class="container">
-                <h1 class="title is-3 has-text-centered">Similarity Metric</h1>
-                <div class="content has-text-justified">
-                  <p> 
-                    We propose a new metric, <i>Chance Adjusted Probabilistic Agreement</i>, or <b>CAPA</b>, which has three key properties:
-                     (1) Two models with 90% accuracy have much lesser scope to disagree than two models with 50% accuracy. CAPA adjusts for chance agreement of two independent models with the given accuracies.
-                     (2) When both models are wrong, they can still disagree. CAPA compares sample-wise predictions instead of sample-wise correctness.
-                     (3) Models provide probabilistic predictions, CAPA incorporates this information.
-                  </p>
-                  
-                  <!-- <div style="text-align: center;">
-                    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-bottom: 5px;">
-                      <img src="static/images/cobs.png" alt="Observed correlation" style="width: 100%; max-width: 40%;">
-                      <img src="static/images/cexp.png" alt="Expected correlation" style="width: 100%; max-width: 60%;">
-                    </div>
-                    <img src="static/images/kappa_p.png" alt="Kappa_p formula" style="width: 100%; max-width: 20%;">
-                  </div> -->
-
-                  <div class="table-container">
-                    <table class="table is-bordered is-striped is-narrow is-hoverable" style="margin: 0 auto; font-size: 0.9rem;">
-                      <thead>
-                        <tr>
-                          <th style="min-width: 120px;">Metric</th>
-                          <th style="min-width: 90px;">Adjusts for<br>Accuracy</th>
-                          <th style="min-width: 90px;">Distinguishes<br>different mistakes</th>
-                          <th style="min-width: 90px;">Incorporates<br>Probabilities</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td><a href="https://arxiv.org/abs/2407.09141">%Flips</a> = 1 - c<sub>obs</sub></td>
-                          <td>❌</td>
-                          <td>❌</td>
-                          <td>❌</td>
-                        </tr>
-                        <tr>
-                          <td>Cohen's κ, Scott's π, Fleiss κ</td>
-                          <td>❌</td>
-                          <td>✅</td>
-                          <td>❌</td>
-                        </tr>
-                        <tr>
-                          <td><a href="https://arxiv.org/abs/2306.05685">%Agreement</a></td>
-                          <td>❌</td>
-                          <td>✅</td>
-                          <td>❌</td>
-                        </tr>
-                        <tr>
-                          <td><a href="https://proceedings.neurips.cc/paper_files/paper/2020/hash/9f6992966d4c363ea0162a056cb45fe5-Abstract.html">Error Consistency</a></td>
-                          <td>✅</td>
-                          <td>❌</td>
-                          <td>❌</td>
-                        </tr>
-                        <tr>
-                          <td>Pearson / Matthew's Correlation of Errors</td>
-                          <td>✅</td>
-                          <td>❌</td>
-                          <td>❌</td>
-                        </tr>
-                        <tr>
-                          <td>Divergence metrics like KL, JSD</td>
-                          <td>❌</td>
-                          <td>✅</td>
-                          <td>✅</td>
-                        </tr>
-                        <tr style="border: 2px solid black;">
-                          <td>CAPA (κ<sub>p</sub>) - Ours</td>
-                          <td>✅</td>
-                          <td>✅</td>
-                          <td>✅</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                  <p style="margin-top: 1rem;">
-                    For CAPA's mathematical definition and theoretical properties, checkout our paper. You compute similarities between different models using <a href="https://huggingface.co/spaces/bethgelab/lm-similarity">our interactive tool</a>! 
-                  </p>
-                </div>
-              </div>
-            </div>
-          </section>
-          <!-- Findings -->
-          <section class="hero is-small">
-            <div class="hero-body">
-              <div class="container">
-                <h1 class="title is-3 has-text-centered">Findings</h1>
-              </div>
-            </div>
-          </section>
-
-          <!-- Image sections -->
-          <section class="hero is-small">
-            <div class="hero-body">
-              <div class="container">
-                <div class="item" style="text-align: center; margin-bottom: 4rem;">
-                  <h1 class="title is-4 has-text-centered">
-                    <b>Evaluation: Affinity Bias in LLM-as-a-judge</b>
-                  </h1>
-                  <img src="static/images/judgement_scores_vs_similarity.png" alt="Similarity vs Judgment scores plot" style="width: 100%; max-width: 50%; object-fit: contain; margin: 0 auto 20px auto;"/>
-                  <h2 class="subtitle has-text-justified" style="max-width: 800px; margin: 0 auto;">
-                    LLM-as-a-judge scores show <b>affinity bias</b> towards more similar models, after controlling for the evaluated model's capability. 
-                    For partial correlation and multiple regression analysis, checkout <a href="https://arxiv.org/abs/2502.04313">our paper</a>. 
-                  </h2>
-                </div>
-
-                <div class="item" style="text-align: center; margin-bottom: 4rem;">
-                  <h1 class="title is-4 has-text-centered">
-                    <b>Training on LM Annotations benefits from Complementary Knowledge</b>
-                  </h1>
-                  <img src="static/images/kappavsgain.png" alt="Similarity vs Gain from weak-to-strongn training plot" style="width: 100%; max-width: 50%; object-fit: contain; margin: 0 auto 20px auto;"/>
-                  <h2 class="subtitle has-text-justified" style="max-width: 800px; margin: 0 auto;">
-                    Student models trained on annotations of smaller supervisors show higher performance improvements, or <B>weak-to-strong generalization</B>, when the student and supervisor have lower similarity. 
-                    In <a href="https://arxiv.org/abs/2502.04313">our paper</a>, we also show that current weak-to-strong training methods have a higher performance ceiling than assumed previously, if they leverage complementary knowledge between the supervisor and student more effectively.
-                  </h2>
-                </div>
-
-                <div class="item" style="text-align: center;">
-                  <h1 class="title is-4 has-text-centered">
-                    <b> With Increasing Capabilities, Model Errors are Becoming More Correlated</b>
-                  </h1>
-                  <img src="static/images/size_colored_by_family.png" alt="Similarilty increases as capabilities increase" style="width: 100%; max-width: 50%; object-fit: contain; margin: 20px auto 20px auto;"/>
-                  <h2 class="subtitle has-text-justified" style="max-width: 800px; margin: 0 auto;">
-                    CAPA captures whether models make similar mistakes.
-                    By analzying 100+ open-weight models, we find that as model capabilities have increased, so has average CAPA to models from other developers in the same capability class. <br><br>
-                    <b>Implications</b>: If the trend of similarity increasing with capabilities continues, it could mean greater risks of affinity bias in evaluations, and lower gains from inter-LLM training.<br><br>
-                  </h2>
-                </div>
-              </div>
-            </div>
-          </section>
-          <!-- End image sections -->
-
-      <section class="section">
-        <div class="container is-max-desktop">
-          <div class="columns is-centered has-text-centered">
-            <div class="column is-11">
-              <h2 class="subtitle has-text-justified">
-                <i>Overall, as model blind-spots get harder to detect, making us defer more to AI oversight, models making more similar mistakes poses the risk of correlated failures.</i>
-              </h2>
-            </div>
+              <span class="link-block">
+                <a href="https://huggingface.co/datasets/AmazonScience/FalseReject" target="_blank"
+                class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                  <img src="static/images/huggingface_logo-noborder.svg" width="24px" height="24px">
+                </span>
+                <span>Dataset</span>
+              </a>
+            </span>
           </div>
         </div>
-      </section>
-      
+      </div>
+    </div>
+  </div>
+</div>
+</section>
 
+<section class="hero teaser">
+  <div class="container" style="max-width: 1200px;">
+    <div class="hero-body">
+      <div style="text-align: center;">
+        <img src="static/images/example_refusal_updated.png" alt="Example of refusal behavior" style="max-width: 82%; width: 100%;">
+      </div>
+      <h2 class="subtitle has-text-justified" style="max-width: 1000px; margin: 0 auto;">
+        Examples include a non-reasoning LLM that directly refuses a benign prompt and a reasoning model that fully complies without considering safety. In contrast, models fine-tuned with our FalseReject dataset can effectively distinguish between safe and unsafe contexts and provide helpful information while maintaining safety.
+      </h2>
+    </div>
+  </div>
+</section>
 
-      <!--BibTex citation -->
-        <section class="section" id="BibTeX">
-          <div class="container is-max-desktop content">
-            <h2 class="title">BibTeX</h2>
-            <pre><code>@misc{goel2025greatmodelsthinkalike,
-              title={Great Models Think Alike and this Undermines AI Oversight}, 
-              author={Shashwat Goel and Joschka Struber and Ilze Amanda Auzina and Karuna K Chandra and Ponnurangam Kumaraguru and Douwe Kiela and Ameya Prabhu and Matthias Bethge and Jonas Geiping},
-              year={2025},
-              eprint={2502.04313},
-              archivePrefix={arXiv},
-              primaryClass={cs.LG},
-              url={https://arxiv.org/abs/2502.04313}, 
-        }</code></pre>
-          </div>
-      </section>
-      <!--End BibTex citation -->
-
-
-        <footer class="footer py-2">
-        <div class="container">
-          <div class="columns">
-            <div class="column is-8">
-              <div class="content is-small has-text-right">
-                <p>
-                  This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a>.
-                </p>
-              </div>
-            </div>
-          </div>
+<section class="section hero is-light">
+  <div class="container" style="max-width: 1000px;">
+    <div class="columns is-centered has-text-centered">
+      <div class="column">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Safety alignment approaches in large language models (LLMs) often lead to the over-refusal of benign queries, significantly diminishing their utility in sensitive scenarios. To address this challenge, we introduce FalseReject, a comprehensive resource containing 16k seemingly toxic queries accompanied by structured responses across 44 safety-related categories. We propose a graph-informed adversarial multi-agent interaction framework to generate diverse and complex prompts, while structuring responses with explicit reasoning to aid models in accurately distinguishing safe from unsafe contexts. FalseReject includes training datasets tailored for both standard instruction-tuned models and reasoning-oriented models, as well as a human-annotated benchmark test set. Our extensive benchmarking on 29 state-of-the-art (SOTA) LLMs reveals persistent over-refusal challenges. Empirical results demonstrate that supervised finetuning with FalseReject substantially reduces unnecessary refusals without compromising overall safety or general language capabilities.
+          </p>
         </div>
-      </footer>
+      </div>
+    </div>
+  </div>
+</section>
 
-      <!-- Statcounter tracking code -->
-        
-      <!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+<section class="section hero is-light">
+  <div class="container" style="max-width: 1000px;">
+    <div class="columns is-centered has-text-centered">
+      <div class="column">
+        <h2 class="title is-3">Comparison with Existing Datasets</h2>
+        <div class="content">
+          <div class="table-container">
+            <table class="table is-bordered is-striped is-narrow is-hoverable" style="margin: 0 auto; font-size: 0.9rem; width: 100%;">
+              <thead>
+                <tr>
+                  <th style="min-width: 120px;">Dataset</th>
+                  <th style="min-width: 90px;">Size</th>
+                  <th style="min-width: 90px;">Topics</th>
+                  <th style="min-width: 90px;">Train</th>
+                  <th style="min-width: 90px;">LLM-<br>Gen</th>
+                  <th style="min-width: 90px;">Rejection<br>Rate</th>
+                  <th style="min-width: 90px;">Self-<br>BLUE ↓</th>
+                  <th style="min-width: 90px;">Dist-2<br>↑</th>
+                  <th style="min-width: 90px;">CoT</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><a href="https://aclanthology.org/2024.naacl-long.301/">XSTest</a></td>
+                  <td>250</td>
+                  <td>18</td>
+                  <td>❌</td>
+                  <td>❌</td>
+                  <td>12.10</td>
+                  <td><b>0.21</b></td>
+                  <td><b>0.69</b></td>
+                  <td>❌</td>
+                </tr>
+                <tr>
+                  <td><a href="https://aclanthology.org/2024.acl-long.253/">OKTest</a></td>
+                  <td>350</td>
+                  <td>18</td>
+                  <td>❌</td>
+                  <td>❌</td>
+                  <td>19.75</td>
+                  <td>0.31</td>
+                  <td>0.64</td>
+                  <td>❌</td>
+                </tr>
+                <tr>
+                  <td><a href="https://arxiv.org/abs/2409.00598">PHTest</a></td>
+                  <td>3,260</td>
+                  <td>10</td>
+                  <td>❌</td>
+                  <td>✅</td>
+                  <td>14.00</td>
+                  <td>0.40</td>
+                  <td>0.52</td>
+                  <td>❌</td>
+                </tr>
+                <tr>
+                  <td><a href="https://arxiv.org/abs/2405.20947">OR-Bench</a></td>
+                  <td>80K</td>
+                  <td>10</td>
+                  <td>❌</td>
+                  <td>✅</td>
+                  <td>6.20</td>
+                  <td>0.35</td>
+                  <td>0.53</td>
+                  <td>❌</td>
+                </tr>
+                <tr style="border: 2px solid black;">
+                  <td><b>FalseReject</b> (Ours)</td>
+                  <td>16K</td>
+                  <td>44</td>
+                  <td>✅</td>
+                  <td>✅</td>
+                  <td><b>40.46</b></td>
+                  <td><b>0.26</b></td>
+                  <td><b>0.65</b></td>
+                  <td>✅</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="has-text-justified" style="margin-top: 2rem; max-width: 1000px; margin-left: auto; margin-right: auto;">
+            Comparison of FalseReject with existing over-refusal datasets. We bold the best scores for both LLM-generated and human-written ones. Topics indicate the number of sensitive topic categories covered. Train specifies whether the dataset contains a query-response training set. LLM-Gen indicates whether datasets are created by LLMs or humans. Rejection Rate denotes the average rejection rate across a fixed set of LLMs. Self-BLEU and Dist-2 (distinct-2gram) measure diversity. CoT indicates whether the dataset includes long chain-of-thought reasoning in responses.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-          <!-- End of Statcounter Code -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container" style="max-width: 1000px;">
+      <h1 class="title is-3 has-text-centered">Key Findings</h1>
+      <div class="content has-text-justified">
+        <div class="item" style="text-align: center; margin-bottom: 4rem;">
+          <h1 class="title is-4 has-text-centered">
+            <b>Data Generation Pipeline</b>
+          </h1>
+            <p class="has-text-justified" style="max-width: 1000px; margin: 2rem auto;">
+            To generate diverse and challenging over-refusal queries at scale, we propose a graph-informed adversarial multi-agent interaction framework. Our approach begins by extracting entity graphs from existing safety-related datasets, which serve as the foundation for generating queries. Through iterative adversarial interactions between a Generator and Discriminator, guided by validation feedback from a pool of LLM evaluators, we create prompts that appear unsafe but remain genuinely harmless. This structured iterative refinement ensures the production of high-quality synthetic queries that effectively simulate unsafe requests without actual harm.
+          </p>
+          <img src="static/images/diagram_data.png" alt="Data generation pipeline" style="width: 100%; max-width: 90%; object-fit: contain; margin: 0 auto 20px auto;"/>
+          <h2 class="subtitle has-text-justified" style="max-width: 1000px; margin: 0 auto; font-size: 0.85rem;">
+            The overall pipeline for generating over-refusal queries in our FalseReject dataset. Our novel graph-informed adversarial multi-agent interaction framework effectively generates diverse and challenging over-refusal queries at scale.
+          </h2>
+        </div>
 
-        </body>
-        </html>
+        <div class="item" style="text-align: center; margin-bottom: 4rem;">
+          <h1 class="title is-4 has-text-centered">
+            <b>Benchmarking Results</b>
+          </h1>
+          <p class="has-text-justified" style="max-width: 1000px; margin: 2rem auto;">
+            Our comprehensive evaluation of 29 SOTA LLMs reveals that even advanced models still struggle significantly with over-refusal. Most models show compliance rates and USR scores far from perfect, with widely-used models like GPT-4.5 and Claude-3.5-Sonnet having compliance rates below 50%. Interestingly, we found that reasoning-oriented models show inconsistent behavior - while DeepSeek-R1 achieves the highest compliance rate (87.53%) and nearly perfect USR (99.66%), other reasoning models like QwQ and o1 exhibit substantially lower compliance rates.
+          </p>
+          <img src="static/images/Figure_benchmark.png" alt="Benchmarking results" style="width: 100%; max-width: 90%; object-fit: contain; margin: 0 auto 20px auto;"/>
+          <h2 class="subtitle has-text-justified" style="max-width: 1000px; margin: 0 auto; font-size: 0.85rem;">
+            Benchmarking results on the FalseReject-Test dataset, comparing Compliance Rate and USR metrics across various language models. Closed-source models are indicated with dark green labels, while open-source models are shown in black. Reasoning-specific models (o1, Deepseek-R1, and QwQ) are additionally marked with a star.
+          </h2>
+        </div>
+
+        <div class="item" style="text-align: center;">
+          <h1 class="title is-4 has-text-centered">
+            <b>In-depth Analysis</b>
+          </h1>
+          <div style="display: flex; justify-content: center; gap: 10px;">
+            <img src="static/images/llama_figure.png" alt="Llama analysis" style="width: 30%; object-fit: contain;"/>
+            <img src="static/images/qwen_figure.png" alt="Qwen analysis" style="width: 30%; object-fit: contain;"/>
+            <img src="static/images/gemma_figure.png" alt="Gemma analysis" style="width: 30%; object-fit: contain;"/>
+          </div>
+          <h2 class="subtitle has-text-justified" style="max-width: 1000px; margin: 0 auto; font-size: 0.85rem;">
+            Per-token KL divergence between aligned models and their base counterparts on the FalseReject dataset. Comparisons are shown for LLM families, contrasting models fine-tuned with our FalseReject-Train-Instruct dataset against the corresponding official instruction-tuned versions.
+          </h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container" style="max-width: 1200px;">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-11">
+        <h2 class="subtitle has-text-justified">
+          <i>Our work underscores the importance of reporting and correcting for model similarity, especially in the emerging paradigm of AI oversight.</i>
+        </h2>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="BibTeX">
+  <div class="container content" style="max-width: 1200px;">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@misc{zhang2025falsereject,
+  title={FalseReject: A Resource for Improving Contextual Safety and Mitigating Over-Refusals in LLMs via Structured Reasoning},
+  author={Zhehao Zhang and Weijie Xu and Fanyou Wu and Chandan K. Reddy},
+  year={2025},
+  eprint={2502.04313},
+  archivePrefix={arXiv}
+}</code></pre>
+  </div>
+</section>
+
+<footer class="footer py-2">
+  <div class="container">
+    <div class="columns">
+      <div class="column is-8">
+        <div class="content is-small has-text-right">
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
